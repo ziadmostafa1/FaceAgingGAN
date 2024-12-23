@@ -163,23 +163,23 @@ def main():
             example_path = "examples/old.jpg"
             example_image = Image.open(example_path).convert("RGB")
             st.subheader("Original Image")
-            st.image(example_image, use_column_width=True)
+            st.image(example_image, use_container_width=True)
             st.subheader("Transformed Image")
             with st.spinner("Processing image..."):
                 transformed_example = process_image(example_image, models[model_key])
                 if transformed_example:
-                    st.image(transformed_example, use_column_width=True)
+                    st.image(transformed_example, use_container_width=True)
     with col2:
         if st.button("Young Example"):
             example_path = "examples/young.jpg"
             example_image = Image.open(example_path).convert("RGB")
             st.subheader("Original Image")
-            st.image(example_image, use_column_width=True)
+            st.image(example_image, use_container_width=True)
             st.subheader("Transformed Image")
             with st.spinner("Processing image..."):
                 transformed_example = process_image(example_image, models[model_key])
                 if transformed_example:
-                    st.image(transformed_example, use_column_width=True)
+                    st.image(transformed_example, use_container_width=True)
 
     if uploaded_file:
         try:
@@ -187,14 +187,14 @@ def main():
             with col_a:
                 st.subheader("Original Image")
                 image = Image.open(uploaded_file).convert("RGB")
-                st.image(image, use_column_width=True)
+                st.image(image, use_container_width=True)
             
             with col_b:
                 st.subheader("Transformed Image")
                 with st.spinner("Processing image..."):
                     transformed_image = process_image(image, models[model_key])
                     if transformed_image:
-                        st.image(transformed_image, use_column_width=True)
+                        st.image(transformed_image, use_container_width=True)
         except Exception as e:
             logger.error(f"Error processing upload: {e}")
             st.error("Error processing the uploaded file. Please try again.")
